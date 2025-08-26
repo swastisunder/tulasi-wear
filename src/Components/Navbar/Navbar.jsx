@@ -1,8 +1,11 @@
 import "./Navbar.css";
 import logo from "../Assets/logo.png";
 import cart_icon from "../Assets/cart_icon.png";
+import { useState } from "react";
 
 function Navbar() {
+  const [menu, setMenu] = useState("shop");
+
   return (
     <div>
       <div className="flex items-center justify-center bg-gray-900 p-4 sticky top-0 z-50">
@@ -22,22 +25,39 @@ function Navbar() {
           <p>Tulasi Wear</p>
         </div>
         <ul className="nav-menu">
-          <li>
-            Shop <hr />
+          <li
+            onClick={() => {
+              setMenu("shop");
+            }}
+          >
+            Shop {menu === "shop" && <hr />}
           </li>
-          <li>
-            Men <hr />
+          <li
+            onClick={() => {
+              setMenu("mens");
+            }}
+          >
+            Men {menu === "mens" && <hr />}
           </li>
-          <li>
-            Women <hr />
+          <li
+            onClick={() => {
+              setMenu("womens");
+            }}
+          >
+            Women {menu === "womens" && <hr />}
           </li>
-          <li>
-            Kids <hr />
+          <li
+            onClick={() => {
+              setMenu("kids");
+            }}
+          >
+            Kids {menu === "kids" && <hr />}
           </li>
         </ul>
         <div className="nav-login-cart">
           <button>Login</button>
           <img src={cart_icon} alt="" />
+          <div className="nav-cart-count">0</div>
         </div>
       </div>
     </div>
