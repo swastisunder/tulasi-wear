@@ -1,10 +1,11 @@
 import "./Navbar.css";
 import logo from "../Assets/logo.png";
 import cart_icon from "../Assets/cart_icon.png";
-import { useState } from "react";
+import { use, useState } from "react";
+import { Link, useLocation } from "react-router-dom";
 
 function Navbar() {
-  const [menu, setMenu] = useState("shop");
+  const location = useLocation();
 
   return (
     <div>
@@ -22,41 +23,35 @@ function Navbar() {
       <div className="navbar">
         <div className="nav-logo">
           <img src={logo} alt="" />
-          <p>Tulasi Wear</p>
+          <p>
+            <Link to="/">Tulasi Wear</Link>
+          </p>
         </div>
         <ul className="nav-menu">
-          <li
-            onClick={() => {
-              setMenu("shop");
-            }}
-          >
-            Shop {menu === "shop" && <hr />}
+          <li>
+            <Link to="/"> Shop </Link>
+            {location.pathname === "/" && <hr />}
           </li>
-          <li
-            onClick={() => {
-              setMenu("mens");
-            }}
-          >
-            Men {menu === "mens" && <hr />}
+          <li>
+            <Link to="/mens"> Men </Link>
+            {location.pathname === "/mens" && <hr />}
           </li>
-          <li
-            onClick={() => {
-              setMenu("womens");
-            }}
-          >
-            Women {menu === "womens" && <hr />}
+          <li>
+            <Link to="/womens"> Women </Link>
+            {location.pathname === "/womens" && <hr />}
           </li>
-          <li
-            onClick={() => {
-              setMenu("kids");
-            }}
-          >
-            Kids {menu === "kids" && <hr />}
+          <li>
+            <Link to="/kids"> Kids </Link>
+            {location.pathname === "/kids" && <hr />}
           </li>
         </ul>
         <div className="nav-login-cart">
-          <button>Login</button>
-          <img src={cart_icon} alt="" />
+          <button>
+            <Link to="/login">Login</Link>
+          </button>
+          <Link to="/cart">
+            <img src={cart_icon} alt="" />
+          </Link>
           <div className="nav-cart-count">0</div>
         </div>
       </div>
