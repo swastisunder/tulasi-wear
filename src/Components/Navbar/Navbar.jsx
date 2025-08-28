@@ -8,7 +8,7 @@ function Navbar() {
   const location = useLocation();
 
   return (
-    <div>
+    <div className="sticky top-0 z-50 bg-white/30 backdrop-blur-md">
       <div className="flex items-center justify-center bg-gray-900 p-4 sticky top-0 z-50">
         <div className="bg-black text-green-400 font-mono text-lg p-6 rounded-xl shadow-lg max-w-2xl mx-auto">
           <p>
