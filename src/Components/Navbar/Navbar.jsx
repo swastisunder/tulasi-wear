@@ -14,7 +14,7 @@ function Navbar() {
           <p>
             $ git commit -m{" "}
             <span className="text-yellow-300">
-              "Project in progress... don't judge 😅"
+              "Project in progress... hare don't judge 😅"
             </span>
           </p>
         </div>
