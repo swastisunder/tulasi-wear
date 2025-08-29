@@ -1,6 +1,7 @@
 .item {
   width: 350px;
   transition: all 0.3s ease;
+  cursor: pointer;
 }
 .item p {
   margin: 6px 0;
@@ -21,6 +22,6 @@
   text-decoration: line-through;
 }
 .item:hover {
-  transform: scale(1.05);
+  transform: scale(1.02) translateY(-10px);
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
