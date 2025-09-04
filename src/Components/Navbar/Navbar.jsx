@@ -1,11 +1,13 @@
 import "./Navbar.css";
 import logo from "../Assets/logo.png";
 import cart_icon from "../Assets/cart_icon.png";
-import { use, useState } from "react";
+import { use, useContext, useState } from "react";
 import { Link, useLocation } from "react-router-dom";
+import { ShopContext } from "../../Context/ShopContext";
 
 function Navbar() {
   const location = useLocation();
+  const { getTotalcartItems } = useContext(ShopContext);
 
   return (
     <div className="sticky top-0 z-50 bg-white/30 backdrop-blur-md">
@@ -51,7 +53,7 @@ function Navbar() {
           <Link to="/cart">
             <img src={cart_icon} alt="" />
           </Link>
-          <div className="nav-cart-count">0</div>
+          <div className="nav-cart-count">{getTotalcartItems()}</div>
         </div>
       </div>
     </div>
