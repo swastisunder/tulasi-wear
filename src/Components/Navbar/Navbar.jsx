@@ -1,13 +1,20 @@
 import "./Navbar.css";
 import logo from "../Assets/logo.png";
 import cart_icon from "../Assets/cart_icon.png";
-import { use, useContext, useState } from "react";
+import { use, useContext, useRef, useState } from "react";
 import { Link, useLocation } from "react-router-dom";
 import { ShopContext } from "../../Context/ShopContext";
+import nav_dropdown from "../Assets/nav_dropdown.png";
 
 function Navbar() {
   const location = useLocation();
   const { getTotalcartItems } = useContext(ShopContext);
+  const menuRef = useRef();
+
+  const dropdown_toggle = (e) => {
+    menuRef.current.classList.toggle("nav-menu-visible");
+    e.target.classList.toggle("open");
+  };
 
   return (
     <div className="sticky top-0 z-50 bg-white/30 backdrop-blur-md">
@@ -28,7 +35,13 @@ function Navbar() {
             <Link to="/">Tulasi Wear</Link>
           </p>
         </div>
-        <ul className="nav-menu">
+        <img
+          className="nav-dropdown"
+          onClick={dropdown_toggle}
+          src={nav_dropdown}
+          alt=""
+        />
+        <ul ref={menuRef} className="nav-menu">
           <li>
             <Link to="/"> Shop </Link>
             {location.pathname === "/" && <hr />}
